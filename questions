@@ -1,0 +1,41 @@
+1. Wayfair - Karat:
+    Datapipeline with different throughput for each stage. What is the maximum throughput of the pipeline?
+    Ex. A-50 --> B-30 --> C-30 --> E - 50
+                        |
+                        --> D - 20 --> F - 10 --> G - 25
+    Ans: Maximum throughput is 10 as the stage F has only 10 and that will be the bottleneck.
+                        
+2. Wayfair - Karat: 
+    Eventual consistency or Strong constistency:
+    a. API with 20 milliseconds response SLA to get media metadata
+    b. Website click collecting
+    c. Bank transactions
+    
+    Ans: a - Eventual consistency.
+    Ans: b - Eventual consistency.
+    Ans: c - Strong consistency.
+
+3. Wayfair - Karat:
+    Google docs processing, there are 100 instances, exactly only one instance should handle one document, document id is generated randomly, 
+    and to assign documents to instances, documentid % 100 is used. Ex. 7653993 % 100 = InstanceId 93. 
+    Will this perform well when usage grows?
+    
+    Ans: Will degrade. Since we have fixed 100 instances and all the documents has to be assigned within the pool of 100 instances.
+    
+4. Wayfair - Karat:
+    Facebook clone, to show number of friends to be shown live for each user's friend. There are two tables: users, and userrelationship.
+    How to achieve this in a scalable way?
+    
+    Ans: Create a table with all users and their users and store the data with counts. Do this at the time of an user becomes friend.
+         Initially write to cached and then persist.
+         
+5. Wayfair - Karat:
+    Electronic Document - Notification to signature failes for some users. How to avoid? Logs will not have info for those missed notifications.
+    Build a scalable solution for this purpose. Documents details are in database.
+    
+    Ans: Build a bridge service and check the logs for missing notifications for documents and users in database.
+    
+  
+    
+    
+    
